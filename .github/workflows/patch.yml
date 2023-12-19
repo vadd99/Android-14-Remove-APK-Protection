@@ -8,6 +8,14 @@ on:
       required: true
       default: ''
 
+on:
+  workflow_dispatch:
+    inputs:
+     G:
+      description: 'services.jar url'
+      required: true
+      default: ''
+
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -30,6 +38,10 @@ jobs:
        - name: Download Framework.jar
          run: |
             axel -n $(nproc) ${{ github.event.inputs.F }}
+
+       - name: Download services.jar
+         run: |
+            axel -n $(nproc) ${{ github.event.inputs.G }}
 
        - name : PATCH-ING
          run: |
