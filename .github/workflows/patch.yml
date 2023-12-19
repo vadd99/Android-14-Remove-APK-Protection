@@ -7,10 +7,6 @@ on:
       description: 'Framework.jar Url'
       required: true
       default: ''
-
-on:
-  workflow_dispatch:
-    inputs:
      G:
       description: 'services.jar url'
       required: true
@@ -37,11 +33,11 @@ jobs:
       
        - name: Download Framework.jar
          run: |
-            axel -n $(nproc) ${{ github.event.inputs.F }}
+            wget -0 Framework.jar '${{ github.event.inputs.F }}'
 
        - name: Download services.jar
          run: |
-            axel -n $(nproc) ${{ github.event.inputs.G }}
+            wget -0 services.jar '${{ github.event.inputs.G }}'
 
        - name : PATCH-ING
          run: |
