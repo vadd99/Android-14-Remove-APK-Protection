@@ -33,7 +33,7 @@ jobs:
       
        - name: Download Framework.jar
          run: |
-            wget -O Framework.jar '${{ github.event.inputs.F }}'
+            wget -O framework.jar '${{ github.event.inputs.F }}'
 
        - name: Download services.jar
          run: |
