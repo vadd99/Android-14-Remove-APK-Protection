@@ -33,11 +33,11 @@ jobs:
       
        - name: Download Framework.jar
          run: |
-            wget -0 Framework.jar '${{ github.event.inputs.F }}'
+            axel -n $(nproc) ${{ github.event.inputs.F }}
 
        - name: Download services.jar
          run: |
-            wget -0 services.jar '${{ github.event.inputs.G }}'
+            axel -n $(nproc) ${{ github.event.inputs.G }}
 
        - name : PATCH-ING
          run: |
