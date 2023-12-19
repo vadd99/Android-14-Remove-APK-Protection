@@ -127,3 +127,11 @@ if  [ -f $dir/jar_temp/framework.jar ]; then
 		echo "Fail to copy framework"
 fi
 
+services
+
+if  [ -f $dir/jar_temp/services.jar ]; then
+		sudo cp -rf $dir/jar_temp/*.jar $dir/module/system/framework
+	else
+		echo "Fail to copy services"
+fi
+
